@@ -1,11 +1,24 @@
 def palindromeIndex(s):
-    if s == s[::-1]:
-        return -1
-    for i in range(len(s)):
-        newString = s[:i] + s[i+1:]
+    left = 0
+    right = len(s) - 1
 
-        if newString == newString[::-1]:
-            return i
+    while left < right:
+        if s[left] != s[right]:
+
+
+            temp = s[left + 1:right + 1]
+            if temp == temp[::-1]:
+                return left
+
+    
+            temp = s[left:right]
+            if temp == temp[::-1]:
+                return right
+
+            return -1
+
+        left += 1
+        right -= 1
 
     return -1
 if __name__ == '__main__':
